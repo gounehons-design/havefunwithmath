@@ -27,11 +27,9 @@ def set_bg_hack(main_bg):
             box-shadow: 0 4px 25px rgba(0,0,0,0.3);
             margin-top: 2rem;
             margin-bottom: 2rem;
-            color: #1a1a1a !important;
         }}
         
-        /* Force all text, headers, and lists inside the container to be dark and readable */
-        .block-container p, .block-container span, .block-container h1, .block-container h2, .block-container h3, .block-container li {{
+        .block-container *, .block-container p, .block-container span, .block-container h1, .block-container h2, .block-container h3, .block-container li {{
             color: #1a1a1a !important;
         }}
         </style>
