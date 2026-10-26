@@ -3,19 +3,24 @@ import base64
 
 def set_bg_hack(main_bg):
   main_bg_ext = "jpg"
+  with open(main_bg, "rb") as f:
+    data = base64.b64encode(f.read()).decode()
+
   return f"""
     <style>
     .stApp {{
-        background: url(data:image/{main_bg_ext};base64,{base64.b64encode(open(main_bg, "rb").read()).decode()});
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
+        background-image: url("data:image/{main_bg_ext};base64,{data}") !important;
+        background-size: cover !important;
+        background-position: center !important;
+        background-repeat: no-repeat !important;
+        background-attachment: fixed !important;
     }}
-    /* Make main content containers transparent so the background shows through */
-    [data-testid="stVerticalBlock"] > div {{
-        background-color: rgba(255, 255, 255, 0.85); /* Optional: semi-transparent white box for readability */
-        padding: 20px;
-        border-radius: 10px;
+    
+    /* Make the central content box semi-transparent so the background shows through */
+    .block-container {{
+        background-color: rgba(255, 255, 255, 0.85) !important;
+        border-radius: 15px;
+        padding: 2rem;
     }}
     </style>
     """
