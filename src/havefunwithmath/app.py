@@ -52,5 +52,3 @@ def set_bg_hack(main_bg):
 
 
 set_bg_hack("bg.jpg")
-#Temporary test to verify the file is deployed and reliable
-st.image("bg.jpg", width=300)
