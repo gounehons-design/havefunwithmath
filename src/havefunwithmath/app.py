@@ -26,4 +26,4 @@ def set_bg_hack(main_bg):
     """
 
 
-st.markdown(set_bg_hack("static/bg.jpg"), unsafe_allow_html=True)
+st.markdown(set_bg_hack("bg.jpg"), unsafe_allow_html=True)
