@@ -2,25 +2,26 @@ import base64
 
 
 def set_bg_hack(main_bg):
-  main_bg_ext = "jpg"
   with open(main_bg, "rb") as f:
     data = base64.b64encode(f.read()).decode()
 
   return f"""
     <style>
-    .stApp {{
-        background-image: url("data:image/{main_bg_ext};base64,{data}") !important;
+    /* Target the main body and app wrapper directly */
+    .stApp, [data-testid="stAppViewContainer"], [data-testid="stHeader"] {{
+        background: url("data:image/jpg;base64,{data}") !important;
         background-size: cover !important;
         background-position: center !important;
         background-repeat: no-repeat !important;
         background-attachment: fixed !important;
     }}
     
-    /* Make the central content box semi-transparent so the background shows through */
+    /* Make the central content container semi-transparent white */
     .block-container {{
-        background-color: rgba(255, 255, 255, 0.85) !important;
+        background-color: rgba(255, 255, 255, 0.88) !important;
         border-radius: 15px;
-        padding: 2rem;
+        padding: 2.5rem;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
     }}
     </style>
     """
